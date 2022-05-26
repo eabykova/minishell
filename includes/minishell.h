@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 12:45:46 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/05/26 14:38:06 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,8 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include "../lib/libft.h"
+
+void	executor(void);
 
 #endif

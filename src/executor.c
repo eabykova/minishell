@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 21:50:05 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 12:47:24 by mmicheli         ###   ########.fr       */
+/*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
+/*   Updated: 2022/05/26 14:36:29 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "../includes/minishell.h"
 
-int	main(void)
+void	executor(void)
 {
-	printf("Hello, I'm minishell!\n");
-	executor();
+	ft_printf("Into executor\n");
 }

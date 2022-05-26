@@ -6,7 +6,8 @@ HEAD	=	minishell.h
 HEAD_B	=	minishell_bonus.h
 
 SRC		=	main.c \
-				src/pipex.c
+				src/pipex.c \
+				src/executor.c
 
 #SRC_B		=
 
