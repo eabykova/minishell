@@ -6,7 +6,7 @@
 /*   By: mmicheli <micheli@student.21-school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 15:57:51 by mmicheli          #+#    #+#             */
-/*   Updated: 2021/10/24 14:47:01 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/05/26 16:19:07 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (lst && new)
 	{
 		if (*lst == NULL)
+		{
+			printf("here1\n");
 			*lst = new;
+		}
 		else
 		{
 			buf = ft_lstlast(*(lst));
