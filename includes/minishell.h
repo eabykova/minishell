@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 21:50:05 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 12:47:24 by mmicheli         ###   ########.fr       */
+/*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
+/*   Updated: 2022/05/26 12:45:46 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
-int	main(void)
-{
-	printf("Hello, I'm minishell!\n");
-}
+# include <unistd.h>
+# include <stdio.h>
+
+#endif

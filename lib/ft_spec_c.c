@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_spec_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mmicheli <mmicheli@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 21:50:05 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 12:47:24 by mmicheli         ###   ########.fr       */
+/*   Created: 2021/12/13 15:12:21 by mmicheli          #+#    #+#             */
+/*   Updated: 2021/12/22 17:33:48 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/minishell.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_putchar_counter(char c)
 {
-	printf("Hello, I'm minishell!\n");
+	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_spec_c(va_list args, char ch)
+{
+	int	count;
+
+	count = 0;
+	ch = va_arg(args, int);
+	count += ft_putchar_counter(ch);
+	return (count);
 }
