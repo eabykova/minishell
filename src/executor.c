@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   executor.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 15:02:16 by mmicheli         ###   ########.fr       */
+/*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
+/*   Updated: 2022/05/26 14:36:29 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "../includes/minishell.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include "../lib/libft.h"
-
-void	executor(void);
-
-#endif
+void	executor(void)
+{
+	ft_printf("Into executor\n");
+}
