@@ -1,25 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lykalon <lykalon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/05/26 14:38:06 by mmicheli         ###   ########.fr       */
+/*   Created: 2022/05/29 20:23:00 by lykalon           #+#    #+#             */
+/*   Updated: 2022/05/29 20:23:00 by lykalon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-
-# include <unistd.h>
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include "../lib/libft.h"
-
-void	executor(void);
-void	cmd_init(t_list **list);
-
-#endif
