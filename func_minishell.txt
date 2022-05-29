@@ -1,0 +1,15 @@
+---readline---
+#include <stdio.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+char *
+readline(const char *prompt);
+
+читает из терминала строку и возвращает ее, используя подсказку, как подсказку???????????
+ридлайн аллоцирует место под строку припомощи malloc, которая вдальнейшем должна быть освобождена.
+Строка возвращается без "\n"
+Есть возможность правки
+
+
+---rl_clear_history---
+void rl_clear_history (void)
