@@ -12,15 +12,7 @@
 
 #include "../includes/minishell.h"
 
-void	cmd_init(t_list **list)
+void	cmd_init(void)
 {
-	int		i;
-
-	list = (t_list **) malloc(sizeof(t_list));
-	printf("here\n");
-	if (!list)
-		ft_kraft_error("Malloc error in cmd_init. Exit.\n", 1);
-	i = -1;
-	while (++i < 10)
-		ft_lstadd_back(list, ft_lstnew(ft_itoa(i)));
+	ft_printf("Into cmd_init\n");
 }
