@@ -58,3 +58,6 @@ fclean		:	clean
 	$(RM) $(NAME) $(NAME_B)
 
 re		:	fclean all
+
+GREEN = \033[1;32m
+DEFAULT = \033[0m

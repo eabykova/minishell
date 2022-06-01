@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/01 17:19:01 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/01 18:32:42 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ static void	child_proc(t_ppx *pipex, char *cmd_1)
 
 static void	parent_proc(t_ppx *pipex, char *cmd_2)
 {
+	int	status;
+
+	waitpid(-1, &status, 0);
 	printf("Into parent proc\n");
 	printf("pipex->out_fil = %d\n", pipex->out_fil);
 	printf("cmd_2 = %s\n", cmd_2);
@@ -31,16 +34,16 @@ static void	parent_proc(t_ppx *pipex, char *cmd_2)
 
 void	executor(t_ppx *pipex)
 {
-	pid_t	pid;
 	char	cmd_1[5] = "ls -a";
 	char	cmd_2[5] = "wc -l";
 
 	printf("Into executor\n");
-	pipe(pipex->end);
-	pid = fork();
-	if (pid == -1)
-		ft_kraft_error("Error in fork\n", EXIT_FAILURE);
-	if (pid == 0)
+	if (pipe(pipex->end) < 0)
+		perror_exit(PIPE_ERROR);
+	pipex->pid_1 = fork();
+	if (pipex->pid_1 == -1)
+		perror_exit(FORK_ERROR);
+	if (pipex->pid_1 == 0)
 		child_proc(pipex, cmd_1);
 	else
 		parent_proc(pipex, cmd_2);

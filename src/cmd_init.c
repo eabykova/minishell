@@ -12,7 +12,9 @@
 
 #include "../includes/minishell.h"
 
-void	cmd_init(void)
+void	cmd_init(t_ppx *pipex, char **envp)
 {
 	ft_printf("Into cmd_init\n");
+
+
 }
