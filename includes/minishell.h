@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/01 13:50:04 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:08:08 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@
 # include <readline/history.h>
 # include "../lib/libft.h"
 
-void	executor(void);
+typedef struct s_ppx
+{
+	int	in_fil;
+	int	out_fil;
+	int	end[2];
+}				t_ppx;
+
+void	executor(t_ppx *pipex);
 void	cmd_init(void);
 
 #endif

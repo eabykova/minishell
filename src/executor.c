@@ -6,34 +6,42 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/01 14:39:19 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:19:01 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static void	child_proc(void)
+static void	child_proc(t_ppx *pipex, char *cmd_1)
 {
-	ft_printf("Into child proc\n");
+	printf("Into child proc\n");
+	printf("pipex->in_fil = %d\n", pipex->in_fil);
+	printf("cmd_1 = %s\n", cmd_1);
+	dup2(STDIN_FILENO, pipex->end[0]);
+	close(pipex->end[0]);
 }
 
-static void	parent_proc(void)
+static void	parent_proc(t_ppx *pipex, char *cmd_2)
 {
-	ft_printf("Into parent proc\n");
+	printf("Into parent proc\n");
+	printf("pipex->out_fil = %d\n", pipex->out_fil);
+	printf("cmd_2 = %s\n", cmd_2);
+//	dup2();
 }
 
-void	executor(void)
+void	executor(t_ppx *pipex)
 {
 	pid_t	pid;
-	int		end[2];
+	char	cmd_1[5] = "ls -a";
+	char	cmd_2[5] = "wc -l";
 
-	ft_printf("Into executor\n");
-	pipe(end);
+	printf("Into executor\n");
+	pipe(pipex->end);
 	pid = fork();
 	if (pid == -1)
 		ft_kraft_error("Error in fork\n", EXIT_FAILURE);
 	if (pid == 0)
-		child_proc();
+		child_proc(pipex, cmd_1);
 	else
-		parent_proc();
+		parent_proc(pipex, cmd_2);
 }
