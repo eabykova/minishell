@@ -36,7 +36,7 @@ typedef struct s_ppx
 	pid_t	pid_2;
 }				t_ppx;
 
-void	executor(t_ppx *pipex);
+void	executor(t_ppx *pipex, char **envp);
 void	cmd_init(t_ppx *pipex, char **envp);
 
 void	perror_exit(char *error);
