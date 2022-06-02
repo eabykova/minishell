@@ -16,5 +16,4 @@ void	cmd_init(t_ppx *pipex, char **envp)
 {
 	ft_printf("Into cmd_init\n");
 
-
 }

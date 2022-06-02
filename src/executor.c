@@ -6,26 +6,41 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/01 21:14:37 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/02 19:06:17 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-static void	child_proc(t_ppx *pipex, char *cmd_1, char **envp)
+static void	first_child(t_ppx *pipex, char *cmd_1, char **envp)
 {
-	printf("Into child proc\n");
-//	printf("pipex->in_fil = %d\n", pipex->in_fil);
-//	printf("cmd_1 = %s\n", cmd_1);
-//	dup2(STDIN_FILENO, pipex->end[0]);
-//	close(pipex->end[0]);
+	char	*fl[2];
+
+	printf("Into first_child proc\n");
+	fl[0] = malloc(4);
+	fl[0] = "cat\0";
+	fl[1] = NULL;
+	dup2(pipex->end[1], STDOUT_FILENO);
+	close(pipex->end[0]);
+	dup2(pipex->in_fil, STDIN_FILENO);
+	close(pipex->in_fil);
+	execve("/bin/cat", fl, envp);
+	printf("Will not see in terminal\n");
+}
+
+static void	second_child(t_ppx *pipex, char *cmd_1, char **envp)
+{
 	char	*fl[3];
 
+	printf("Into second_child proc\n");
 	fl[0] = malloc(3);
 	fl[0] = "ls\0";
 	fl[1] = malloc(4);
 	fl[1] = "-la\0";
 	fl[2] = NULL;
+	dup2(pipex->end[0], STDIN_FILENO);
+	close(pipex->end[1]);
+	dup2(pipex->out_fil, STDOUT_FILENO);
 	execve("/bin/ls", fl, envp);
 }
 
@@ -35,8 +50,6 @@ static void	parent_proc(t_ppx *pipex, char *cmd_2)
 
 	waitpid(-1, &status, 0);
 	printf("Into parent proc\n");
-	printf("pipex->out_fil = %d\n", pipex->out_fil);
-	printf("cmd_2 = %s\n", cmd_2);
 //	dup2();
 }
 
@@ -52,7 +65,12 @@ void	executor(t_ppx *pipex, char **envp)
 	if (pipex->pid_1 == -1)
 		perror_exit(FORK_ERROR);
 	if (pipex->pid_1 == 0)
-		child_proc(pipex, cmd_1, envp);
-//	else
-//		parent_proc(pipex, cmd_2);
+		first_child(pipex, cmd_1, envp);
+	pipex->pid_2 = fork();
+	if (pipex->pid_2 == -1)
+		perror_exit(FORK_ERROR);
+	if (pipex->pid_2 == 0)
+		second_child(pipex, cmd_1, envp);
+	else
+		parent_proc(pipex, cmd_2);
 }

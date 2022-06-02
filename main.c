@@ -22,26 +22,25 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_ppx	pipex;
 
-//	if (argc == 5)
-//	{
-//		printf("Hello, I'm minishell!\n");
-//		pipex.in_fil = open(argv[1], O_RDONLY);
-//		if (pipex.in_fil < 0)
-//			perror_exit(ERROR_INFILE);
-//		pipex.out_fil = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
-//		if (pipex.out_fil < 0)
-//			perror_exit(ERROR_OUTFILE);
-//		cmd_init(&pipex, envp);
-//		executor(&pipex, envp);
-//	}
-//	else
-//	{
-//		if (argc < 5)
-//			printf(TOO_FEW_ARGS);
-//		else
-//			printf (TOO_MUCH_ARGS);
-//	}
-	executor(&pipex, envp);
+	if (argc == 5)
+	{
+		printf("Hello, I'm minishell!\n");
+		pipex.in_fil = open(argv[1], O_RDONLY);
+		if (pipex.in_fil < 0)
+			perror_exit(ERROR_INFILE);
+		pipex.out_fil = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+		if (pipex.out_fil < 0)
+			perror_exit(ERROR_OUTFILE);
+		cmd_init(&pipex, envp);
+		executor(&pipex, envp);
+	}
+	else
+	{
+		if (argc < 5)
+			printf(TOO_FEW_ARGS);
+		else
+			printf (TOO_MUCH_ARGS);
+	}
 }
 
 //int	main(int argc, char **argv, char **envp)
