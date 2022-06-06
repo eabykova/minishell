@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+//# include <readline/readline.h>
+//# include <readline/history.h>
 # include "../lib/libft.h"
 
 # define ERROR_INFILE "Error in infile opening.\n"
