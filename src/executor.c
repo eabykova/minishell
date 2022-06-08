@@ -17,14 +17,14 @@ static void	first_child(t_ppx *pipex, char *cmd_1, char **envp)
 	char	*fl[2];
 
 	printf("Into first_child proc\n");
-	fl[0] = malloc(4);
-	fl[0] = "cat\0";
+	fl[0] = malloc(3);
+	fl[0] = "ls\0";
 	fl[1] = NULL;
 	dup2(pipex->end[1], STDOUT_FILENO);
 	close(pipex->end[0]);
 	dup2(pipex->in_fil, STDIN_FILENO);
 	close(pipex->in_fil);
-	execve("/bin/cat", fl, envp);
+	execve("/bin/ls", fl, envp);
 	printf("Will not see in terminal\n");
 }
 

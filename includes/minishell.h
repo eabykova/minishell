@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/02 19:10:32 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:20:21 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
-//# include <readline/readline.h>
-//# include <readline/history.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 # include "../lib/libft.h"
 
 # define ERROR_INFILE "Error in infile opening.\n"
