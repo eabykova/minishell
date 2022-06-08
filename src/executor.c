@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:36:29 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/02 19:10:32 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/08 13:54:59 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 static void	first_child(t_ppx *pipex, char *cmd_1, char **envp)
 {
-	char	*fl[2];
+	char	*fl[3];
 
 	printf("Into first_child proc\n");
 	fl[0] = malloc(3);
 	fl[0] = "ls\0";
-	fl[1] = NULL;
+	fl[1] = malloc(3);
+	fl[1] = "-a\0";
+	fl[2] = NULL;
 	dup2(pipex->end[1], STDOUT_FILENO);
 	close(pipex->end[0]);
 	dup2(pipex->in_fil, STDIN_FILENO);
 	close(pipex->in_fil);
 	execve("/bin/ls", fl, envp);
-	printf("Will not see in terminal\n");
+	printf("Will not see it in terminal\n");
 }
 
 static void	second_child(t_ppx *pipex, char *cmd_1, char **envp)
@@ -34,9 +36,9 @@ static void	second_child(t_ppx *pipex, char *cmd_1, char **envp)
 
 	printf("Into second_child proc\n");
 	fl[0] = malloc(3);
-	fl[0] = "ls\0";
-	fl[1] = malloc(4);
-	fl[1] = "-la\0";
+	fl[0] = "wc\0";
+	fl[1] = malloc(3);
+	fl[1] = "-l\0";
 	fl[2] = NULL;
 	dup2(pipex->end[0], STDIN_FILENO);
 	close(pipex->end[1]);

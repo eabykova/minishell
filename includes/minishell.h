@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/08 13:20:21 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:20:46 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define TOO_MUCH_ARGS "Too much arguments. Try again.\n"
 # define PIPE_ERROR "Error in pipe.\n"
 # define FORK_ERROR "Error in fork.\n"
+# define SPLIT_ERROR "Error in ft_split.\n"
 
 typedef struct s_ppx
 {
@@ -34,6 +35,7 @@ typedef struct s_ppx
 	int		end[2];
 	pid_t	pid_1;
 	pid_t	pid_2;
+	char	**path;
 }				t_ppx;
 
 void	executor(t_ppx *pipex, char **envp);
