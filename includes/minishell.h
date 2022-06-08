@@ -6,7 +6,7 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 12:45:46 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/08 16:20:46 by mmicheli         ###   ########.fr       */
+/*   Updated: 2022/06/08 17:40:48 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ typedef struct s_ppx
 	pid_t	pid_1;
 	pid_t	pid_2;
 	char	**path;
+	char	**cmd;
 }				t_ppx;
 
-void	executor(t_ppx *pipex, char **envp);
-void	cmd_init(t_ppx *pipex, char **envp);
+void	executor(t_ppx *pipex,	char **argv, char **envp);
+void	env_init(t_ppx *pipex, char **envp);
+//void	cmd_init(t_ppx *pipex, char *cmd);
 
 void	perror_exit(char *error);
 

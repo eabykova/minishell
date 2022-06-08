@@ -1,13 +1,17 @@
-total 128
+total 136
+drwxr-xr-x  16 mmicheli  4221    544 Jun  8 17:42 .
+drwxr-xr-x  19 mmicheli  4221    646 May 29 16:06 ..
+drwxr-xr-x  14 mmicheli  4221    476 Jun  8 17:15 .git
+drwxr-xr-x   7 mmicheli  4221    238 Jun  8 17:35 .idea
 -rw-r--r--   1 mmicheli  4221   1134 Jun  8 13:39 Makefile
 -rw-r--r--   1 mmicheli  4221    616 May 29 19:42 func_minishell.txt
 -rw-r--r--   1 mmicheli  4221  15098 May 29 19:42 func_pipex.txt
 -rw-r--r--   1 mmicheli  4221      0 Jun  8 13:39 in.txt
-drwxr-xr-x   3 mmicheli  4221    102 Jun  8 13:42 includes
-drwxr-xr-x  86 mmicheli  4221   2924 Jun  8 13:54 lib
--rw-r--r--   1 mmicheli  4221   1469 Jun  8 13:51 main.c
--rw-r--r--   1 mmicheli  4221  12845 Jun  8 13:54 main.d
--rw-r--r--   1 mmicheli  4221   1520 Jun  8 13:54 main.o
--rwxr-xr-x   1 mmicheli  4221  14428 Jun  8 13:55 minishell
--rw-r--r--   1 mmicheli  4221      0 Jun  8 13:55 out.txt
-drwxr-xr-x  12 mmicheli  4221    408 Jun  8 13:55 src
+drwxr-xr-x   3 mmicheli  4221    102 Jun  8 17:41 includes
+drwxr-xr-x  86 mmicheli  4221   2924 Jun  8 17:18 lib
+-rw-r--r--   1 mmicheli  4221   1475 Jun  8 17:41 main.c
+-rw-r--r--   1 mmicheli  4221  12845 Jun  8 17:41 main.d
+-rw-r--r--   1 mmicheli  4221   1536 Jun  8 17:41 main.o
+-rwxr-xr-x   1 mmicheli  4221  19132 Jun  8 17:42 minishell
+-rw-r--r--   1 mmicheli  4221      0 Jun  8 17:42 out.txt
+drwxr-xr-x  12 mmicheli  4221    408 Jun  8 17:42 src
