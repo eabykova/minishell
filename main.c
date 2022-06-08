@@ -6,24 +6,39 @@
 /*   By: mmicheli <mmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:50:05 by mmicheli          #+#    #+#             */
-/*   Updated: 2022/06/08 20:23:48 by lykalon          ###   ########.fr       */
+/*   Updated: 2022/06/08 19:20:56 by mmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/minishell.h"
 
+void	perror_exit(char *error)
+{
+	perror(error);
+	exit(1);
+}
+
 int	main(int argc, char **argv, char **envp)
 {
-	t_list	**cmd_list;
+	t_ppx	pipex;
 
-	printf("Hello, I'm minishell!\n");
-//	cmd_init(cmd_list);
-//	while (cmd_list)
-//	{
-//		ft_printf("%d\n", (*cmd_list)->content);
-//		cmd_list++;
-//	}
-//	infile_to_cmd1();
-//	cmd1_to_cmd2(envp);
-	cmd2_to_out();
+	if (argc == 5)
+	{
+		printf("Hello, I'm minishell!\n");
+		pipex.in_fil = open(argv[1], O_RDONLY);
+		if (pipex.in_fil < 0)
+			perror_exit(ERROR_INFILE);
+		pipex.out_fil = open(argv[4], O_CREAT | O_WRONLY | O_TRUNC, 0644);
+		if (pipex.out_fil < 0)
+			perror_exit(ERROR_OUTFILE);
+		env_init(&pipex, envp);
+		executor(&pipex, argv, envp);
+	}
+	else
+	{
+		if (argc < 5)
+			printf(TOO_FEW_ARGS);
+		else
+			printf (TOO_MUCH_ARGS);
+	}
 }

@@ -1,11 +1,34 @@
- 1  192.168.20.1 (192.168.20.1)  1.506 ms  0.898 ms  0.956 ms
- 2  192.168.2.13 (192.168.2.13)  0.367 ms  0.320 ms  0.203 ms
- 3  195-133-239-81.in-addr.netone.ru (195.133.239.81)  1.817 ms  1.432 ms  1.272 ms
- 4  188-65-128-226.in-addr.netone.ru (188.65.128.226)  7.083 ms  5.898 ms  39.107 ms
- 5  188-65-128-225.in-addr.netone.ru (188.65.128.225)  0.765 ms  0.821 ms  0.737 ms
- 6  yandex-as13238.eurasiapeering.com (185.232.60.177)  1.587 ms  1.507 ms  1.357 ms
- 7  sas-32z5-ae1.yndx.net (87.250.239.201)  68.069 ms *
-    myt-32z1-ae3.yndx.net (87.250.239.53)  2.428 ms
- 8  10.12.1.1 (10.12.1.1)  4.760 ms
-    yandex.ru (77.88.55.70)  5.549 ms
-    10.12.2.1 (10.12.2.1)  3.607 ms
+#ifndef MINISHELL_H
+# define MINISHELL_H
+
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include "../lib/libft.h"
+
+# define ERROR_INFILE "Error in infile opening.\n"
+# define ERROR_OUTFILE "Error in outfile opening.\n"
+# define TOO_FEW_ARGS "Too few arguments. Try again.\n"
+# define TOO_MUCH_ARGS "Too much arguments. Try again.\n"
+# define PIPE_ERROR "Error in pipe.\n"
+# define FORK_ERROR "Error in fork.\n"
+# define SPLIT_ERROR "Error in ft_split.\n"
+
+typedef struct s_ppx
+{
+	int		in_fil;
+	int		out_fil;
+	int		end[2];
+	pid_t	pid_1;
+	pid_t	pid_2;
+	char	**path;
+	char	**cmd;
+}				t_ppx;
+
+void	executor(t_ppx *pipex,	char **argv, char **envp);
+void	env_init(t_ppx *pipex, char **envp);
+//void	cmd_init(t_ppx *pipex, char *cmd);
+
+void	perror_exi
